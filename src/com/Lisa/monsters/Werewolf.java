@@ -1,7 +1,9 @@
 package com.Lisa.monsters;
 
-public class Troll extends GameCharacter {
-    public Troll(String name, int hp, int attackPower) {
+public class Werewolf extends GameCharacter {
+    //private boolean _isWolf = false;
+
+    public Werewolf(String name, int hp, int attackPower) {
         this.name = name;
         this.hp = hp;
         this.attackPower = attackPower;
@@ -9,26 +11,24 @@ public class Troll extends GameCharacter {
     }
 
     @Override
-    public void takeHit(int damage) {
-        hp -= damage;
-    }
-
-    @Override
     public void attack(GameCharacter target) {
-        //Cast GameUnit to GameCharacter to take name
-        //  String target_name = target.getName();
         boolean target_blocked = target.isBlocked();
 
         //Damage calculation
+
         int damage = attackPower;
         if (target_blocked) {
-            if (Math.random() < 0.8) {
+            if (Math.random() < 0.7) {
                 System.out.println(target.getName() + " blocked the attack");
-                return;
-            } else {
-                damage *= 2;
+                damage=damage/2;
             }
         }
+
+       if (Environment.getInstance().getNight()) {
+           damage *= 2;
+       }
+
+
         //Hit
         target.takeHit(damage);
 
@@ -41,17 +41,4 @@ public class Troll extends GameCharacter {
         block = true;
         System.out.println(name + " is trying to block next attack. Get +1 hp  ");
     }
-
-    @Override
-    public boolean isDead() {
-        return hp <= 0;
-    }
-
-    @Override
-    public void resetBlock() {
-        block = false;
-    }
-
-
 }
-

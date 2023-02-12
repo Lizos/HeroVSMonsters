@@ -13,22 +13,37 @@ import java.util.ArrayList;
 
 public class MonstersApp {
 
+
     private static Scanner sc = new Scanner(System.in);
 
     private static void showEnemies(ArrayList<GameCharacter> enemies) {
         for (GameCharacter actual_monster : enemies) {
-            System.out.println(actual_monster.name + " hp:" + actual_monster.hp + (actual_monster.isDead() ? "Defeated" : "Active"));
+            System.out.println(actual_monster.getName() + " hp:" + actual_monster.hp + (actual_monster.isDead() ? "Defeated" : "Active"));
         }
     }
 
     public static void main(String[] args) {
 
+        //init day/night
+        if (Math.random() < 0.6) {
+            Environment.getInstance().setNight(true);
+            System.out.println(" Night");
+
+        } else {
+            Environment.getInstance().setNight(false);
+            System.out.println(" Day");
+        }
+
+
+        //init units
         ArrayList<GameCharacter> enemies = new ArrayList<>();
         enemies.add(GameCharacter.createBigTroll("nifnif"));
         enemies.add(GameCharacter.createRegularTroll("nafnaf"));
         enemies.add(GameCharacter.createSmallTroll("nufnuf"));
+        enemies.add(GameCharacter.createWerewolf("Bobik"));
         GameCharacter hero = GameCharacter.createHero("Bob");
 
+        //start
         System.out.println(hero.name + " Journey is beginning");
         System.out.println(hero.name + " is ambushed by trolls");
 
@@ -46,7 +61,7 @@ public class MonstersApp {
                 GameCharacter monster = enemies.get(index);
                 hero.attack(monster);
                 if (monster.isDead() ) {
-                    System.out.println(hero.name + " defeated a " + monster.name);
+                    System.out.println(hero.getName() + " defeated a " + monster.getName());
                     break;
                 }
             }
@@ -61,7 +76,7 @@ public class MonstersApp {
                 if (Math.random() < 0.5) {
                     actual_monster.attack(hero);
                     if (hero.isDead()) {
-                        System.out.println(actual_monster.name + " defeated a " + hero.name);
+                        System.out.println(actual_monster.name + " defeated a " + hero.getName());
                         break;
                     }
                 } else {

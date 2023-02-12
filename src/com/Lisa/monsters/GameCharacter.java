@@ -2,9 +2,16 @@ package com.Lisa.monsters;
 
 abstract public class GameCharacter {
     protected String name;
+
+
     protected int hp;
     protected int attackPower;
     protected boolean block;
+
+    abstract public void attack(GameCharacter target);
+
+
+    abstract public void blockAction();
 
     public static GameCharacter createRegularTroll(String name) {
         return new Troll(name, 25, 3);
@@ -22,9 +29,13 @@ abstract public class GameCharacter {
         return new Troll(name, 30, 4);
     }
 
-    /*public String getName() {
+    public static GameCharacter createWerewolf(String name) {
+        return new Werewolf(name, 23, 3);
+    }
+
+    public String getName() {
         return name;
-    }*/
+    }
 
     public int getHp() {
         return hp;
@@ -34,13 +45,6 @@ abstract public class GameCharacter {
         return block;
     }
 
-    public void attack(GameCharacter target) {
-
-    }
-
-    public void blockAction() {
-
-    }
 
     public void resetBlock() {
         block = false;
@@ -55,10 +59,4 @@ abstract public class GameCharacter {
         System.out.println(name + " damaged " + ". Damage:" + damage);
     }
 
-   /* public void resetBlock() {
-
-    }
-
-    protected void takeHit(int damage) {
-    }*/
 }
