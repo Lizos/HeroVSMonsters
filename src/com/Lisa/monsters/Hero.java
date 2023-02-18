@@ -1,9 +1,9 @@
 package com.Lisa.monsters;
 
-public class Werewolf extends GameCharacter {
-    //private boolean _isWolf = false;
 
-    public Werewolf(String name, int hp, int attackPower) {
+public class Hero extends GameCharacter {
+
+    public Hero(String name, int hp, int attackPower) {
         this.name = name;
         this.hp = hp;
         this.attackPower = attackPower;
@@ -41,4 +41,20 @@ public class Werewolf extends GameCharacter {
         block = true;
         System.out.println(name + " is trying to block next attack. Get +1 hp  ");
     }
+
+    @Override
+    public boolean isDead() {
+        return hp <= 0;
+    }
+
+    @Override
+    public void resetBlock() {
+        block = false;
+    }
+
+    @Override
+    public void takeHit(int damage) {
+        hp -= damage;
+    }
+
 }

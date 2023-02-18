@@ -14,22 +14,26 @@ abstract public class GameCharacter {
     abstract public void blockAction();
 
     public static GameCharacter createRegularTroll(String name) {
+
         return new Troll(name, 25, 3);
     }
 
     public static GameCharacter createBigTroll(String name) {
+
         return new Troll(name, 30, 4);
     }
 
     public static GameCharacter createSmallTroll(String name) {
+
         return new Troll(name, 20, 2);
     }
 
     public static GameCharacter createHero(String name) {
-        return new Troll(name, 30, 4);
+        return new Hero(name, 25, 3);
     }
 
     public static GameCharacter createWerewolf(String name) {
+
         return new Werewolf(name, 23, 3);
     }
 
@@ -42,20 +46,24 @@ abstract public class GameCharacter {
     }
 
     public boolean isBlocked() {
+
         return block;
     }
 
 
     public void resetBlock() {
+
         block = false;
     }
 
     public boolean isDead() {
+
         return false;
     }
 
 
     protected void takeHit(int damage) {
+
         System.out.println(name + " damaged " + ". Damage:" + damage);
     }
 

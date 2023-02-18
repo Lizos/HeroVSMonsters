@@ -50,7 +50,7 @@ public class MonstersApp {
         System.out.println(" Battle begins... ");
         while (true) {
             System.out.println("Hero's turn");
-            System.out.println( hero.name + ", what is your action?");
+            System.out.println(hero.name + ", what is your action?");
             hero.resetBlock();
             String input = sc.next();
             if (input.equals("/hit")) {
@@ -60,7 +60,7 @@ public class MonstersApp {
                 int index = Integer.parseInt(input);
                 GameCharacter monster = enemies.get(index);
                 hero.attack(monster);
-                if (monster.isDead() ) {
+                if (monster.isDead()) {
                     System.out.println(hero.getName() + " defeated a " + monster.getName());
                     break;
                 }
