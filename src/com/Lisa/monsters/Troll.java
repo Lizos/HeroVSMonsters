@@ -10,13 +10,14 @@ public class Troll extends GameCharacter {
 
     @Override
     public void takeHit(int damage) {
+        System.out.println(name + ": " + Resources.getLanguageBundle().getString("SpeechTrollTakeHit"));
         hp -= damage;
     }
 
     @Override
     public void attack(GameCharacter target) {
-        //Cast GameUnit to GameCharacter to take name
-        //  String target_name = target.getName();
+        System.out.println(name + ": " + Resources.getLanguageBundle().getString("SpeechTrollAttack"));
+
         boolean target_blocked = target.isBlocked();
 
         //Damage calculation
@@ -37,6 +38,7 @@ public class Troll extends GameCharacter {
 
     @Override
     public void blockAction() {
+        System.out.println(name + ": " + Resources.getLanguageBundle().getString("SpeechTrollBlockaction"));
         hp++;
         block = true;
         System.out.println(name + " is trying to block next attack. Get +1 hp  ");

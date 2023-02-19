@@ -1,4 +1,6 @@
 package com.Lisa.monsters;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class MonstersApp {
 
     private static Scanner sc = new Scanner(System.in);
 
+
     private static void showEnemies(ArrayList<GameCharacter> enemies) {
         for (GameCharacter actual_monster : enemies) {
             System.out.println(actual_monster.getName() + " hp:" + actual_monster.hp + (actual_monster.isDead() ? "Defeated" : "Active"));
@@ -23,6 +26,16 @@ public class MonstersApp {
     }
 
     public static void main(String[] args) {
+
+        System.out.println("Choose language: EN or DE");
+        String inlang = sc.next();
+        if (inlang.equals("DE")) {
+            Resources.setLanguageBundle(ResourceBundle.getBundle("i18n", Locale.GERMAN));
+        } else {
+            Resources.setLanguageBundle(ResourceBundle.getBundle("i18n"));
+        }
+
+
 
         //init day/night
         if (Math.random() < 0.6) {

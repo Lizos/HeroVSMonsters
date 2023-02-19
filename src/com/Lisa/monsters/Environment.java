@@ -1,6 +1,7 @@
 package com.Lisa.monsters;
 
 public class Environment {
+
     private static Environment instance;
     private boolean _night=false;
 
