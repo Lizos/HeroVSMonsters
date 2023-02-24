@@ -44,24 +44,24 @@ public class Game {
     }
 
     public void input(String user_input) {
-        Observer obs = Observer.getInstance();
-        //obs.input(Observer.RecordType.INFO,'','',0, _hero.getName()+" journey is beginning" );
-        //obs.input(Observer.RecordType.INFO,'','',0, _hero.getName()+" is ambushed by trolls" );
-        //obs.input(Observer.RecordType.INFO,'','',0," Battle begins... "  );
+        Log obs = Log.getInstance();
+        //obs.input(Log.RecordType.INFO,'','',0, _hero.getName()+" journey is beginning" );
+        //obs.input(Log.RecordType.INFO,'','',0, _hero.getName()+" is ambushed by trolls" );
+        //obs.input(Log.RecordType.INFO,'','',0," Battle begins... "  );
 
-        obs.input(Observer.RecordType.INFO, '', '', 0, "Hero's turn");
-        obs.input(Observer.RecordType.INFO, '', '', 0, _hero.getName() + ", what is your action?");
+        obs.input(Log.RecordType.INFO, '', '', 0, "Hero's turn");
+        obs.input(Log.RecordType.INFO, '', '', 0, _hero.getName() + ", what is your action?");
         _hero.resetBlock();
         //String input = sc.next();
         if (user_input.indexOf("attack") == 0) {
-            //obs.input( Observer.RecordType.INFO,'','',0,"Which one?");
+            //obs.input( Log.RecordType.INFO,'','',0,"Which one?");
             //showEnemies(_enemies);
             //input = sc.next();
             int index = Integer.parseInt(user_input.substring(6));
             GameCharacter monster = _enemies.get(index);
             _hero.attack(monster);
             if (monster.isDead()) {
-                obs.input(Observer.RecordType.INFO, '', '', 0, _hero.getName() + " defeated a " + monster.getName());
+                obs.input(Log.RecordType.INFO, '', '', 0, _hero.getName() + " defeated a " + monster.getName());
                 // System.out.println(_hero.getName() + " defeated a " + monster.getName());
                 //TODO add hero win gameover
             }
@@ -72,14 +72,14 @@ public class Game {
         }
 
         //System.out.println("Enemy's turn");
-        obs.input(Observer.RecordType.INFO, '', '', 0,"Enemy's turn" );
+        obs.input(Log.RecordType.INFO, '', '', 0,"Enemy's turn" );
         for (GameCharacter actual_monster : _enemies) {
             actual_monster.resetBlock();
             if (Math.random() < 0.5) {
                 actual_monster.attack(_hero);
                 if (_hero.isDead()) {
                    // System.out.println(actual_monster.getName() + " defeated a " + _hero.getName());
-                    obs.input(Observer.RecordType.INFO, '', '', 0,actual_monster.getName() + " defeated a " + _hero.getName() );
+                    obs.input(Log.RecordType.INFO, '', '', 0,actual_monster.getName() + " defeated a " + _hero.getName() );
                     _game_over = true;
                     break;
                 }

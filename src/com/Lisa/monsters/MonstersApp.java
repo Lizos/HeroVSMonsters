@@ -1,11 +1,7 @@
 package com.Lisa.monsters;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-
-import static com.Lisa.monsters.Color.*;
 
 /*interface GameUnit {
     public void takeHit(int damage);
@@ -107,7 +103,7 @@ public class MonstersApp {
         }
 
         System.out.println("End");
-        Observer.getInstance().showRecords();
+        Log.getInstance().showRecords();
 
         System.out.println("End");
     }

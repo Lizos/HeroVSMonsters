@@ -2,7 +2,7 @@ package com.Lisa.monsters;
 
 import java.util.ArrayList;
 
-public class Observer {
+public class Log {
     //TODO rewrite with events
     public enum RecordType {
         ATTACK, BLOCK, SPEECH, INFO, SYS_MESSAGE
@@ -19,16 +19,16 @@ public class Observer {
     }
 
     private ArrayList<Record> _messages;
-    private static Observer _instance;
+    private static Log _instance;
 
-    private Observer() {
+    private Log() {
         _messages = new ArrayList<>();
     }
 
 
-    public static Observer getInstance() {
+    public static Log getInstance() {
         if (_instance == null) {
-            _instance = new Observer();
+            _instance = new Log();
         }
         return _instance;
     }
