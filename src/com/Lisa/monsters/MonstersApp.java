@@ -32,7 +32,7 @@ public class MonstersApp {
         //Init locale
         System.out.println("Choose language: EN or DE");
         String inlang = sc.next();
-        if (inlang.equals("DE")) {
+        /*if (inlang.equals("DE")) {
             Resources.setLanguageBundle(ResourceBundle.getBundle("i18n", Locale.GERMAN));
         } else {
             Resources.setLanguageBundle(ResourceBundle.getBundle("i18n"));
@@ -46,21 +46,21 @@ public class MonstersApp {
             Environment.getInstance().setNight(false);
             System.out.println(ANSI_YELLOW + " Day" + ANSI_RESET);
 
-        }
+        }*/
 
         //init units
-        ArrayList<GameCharacter> enemies = new ArrayList<>();
+        /*ArrayList<GameCharacter> enemies = new ArrayList<>();
         enemies.add(GameCharacter.createBigTroll("Nifnif"));
         enemies.add(GameCharacter.createRegularTroll("Nafnaf"));
         enemies.add(GameCharacter.createSmallTroll("Nufnuf"));
         enemies.add(GameCharacter.createWerewolf("Bobik"));
-        GameCharacter hero = GameCharacter.createHero("Bob");
+        GameCharacter hero = GameCharacter.createHero("Bob");*/
 
         //start
-        System.out.println(hero.getName() + " Journey is beginning");
+        /*System.out.println(hero.getName() + " Journey is beginning");
         System.out.println(hero.getName() + " is ambushed by trolls");
 
-        System.out.println(" Battle begins... ");
+        System.out.println(" Battle begins... ");*/
         Boolean game_over = false;
         while (!game_over) {
             System.out.println("Hero's turn");
