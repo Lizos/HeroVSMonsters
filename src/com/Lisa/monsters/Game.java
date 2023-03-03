@@ -49,8 +49,8 @@ public class Game {
         //obs.input(Log.RecordType.INFO,'','',0, _hero.getName()+" is ambushed by trolls" );
         //obs.input(Log.RecordType.INFO,'','',0," Battle begins... "  );
 
-        obs.input(Log.RecordType.INFO, '', '', 0, "Hero's turn");
-        obs.input(Log.RecordType.INFO, '', '', 0, _hero.getName() + ", what is your action?");
+        obs.input(Log.RecordType.INFO, "", "", 0, "Hero's turn");
+        obs.input(Log.RecordType.INFO, "", "", 0, _hero.getName() + ", what is your action?");
         _hero.resetBlock();
         //String input = sc.next();
         if (user_input.indexOf("attack") == 0) {
@@ -61,7 +61,7 @@ public class Game {
             GameCharacter monster = _enemies.get(index);
             _hero.attack(monster);
             if (monster.isDead()) {
-                obs.input(Log.RecordType.INFO, '', '', 0, _hero.getName() + " defeated a " + monster.getName());
+                obs.input(Log.RecordType.INFO, "", "", 0, _hero.getName() + " defeated a " + monster.getName());
                 // System.out.println(_hero.getName() + " defeated a " + monster.getName());
                 //TODO add hero win gameover
             }
@@ -72,14 +72,14 @@ public class Game {
         }
 
         //System.out.println("Enemy's turn");
-        obs.input(Log.RecordType.INFO, '', '', 0,"Enemy's turn" );
+        obs.input(Log.RecordType.INFO, "", "", 0, "Enemy's turn");
         for (GameCharacter actual_monster : _enemies) {
             actual_monster.resetBlock();
             if (Math.random() < 0.5) {
                 actual_monster.attack(_hero);
                 if (_hero.isDead()) {
-                   // System.out.println(actual_monster.getName() + " defeated a " + _hero.getName());
-                    obs.input(Log.RecordType.INFO, '', '', 0,actual_monster.getName() + " defeated a " + _hero.getName() );
+                    // System.out.println(actual_monster.getName() + " defeated a " + _hero.getName());
+                    obs.input(Log.RecordType.INFO, "", "", 0, actual_monster.getName() + " defeated a " + _hero.getName());
                     _game_over = true;
                     break;
                 }
@@ -90,8 +90,8 @@ public class Game {
 
     }
 
-    public void output() {
-
+    public ArrayList<Log.Record> output(int index) {
+        return Log.getInstance().output(index);
     }
 
 }

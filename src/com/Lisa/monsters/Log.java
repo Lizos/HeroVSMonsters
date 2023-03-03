@@ -19,6 +19,7 @@ public class Log {
     }
 
     private ArrayList<Record> _messages;
+    private int _id = 0;
     private static Log _instance;
 
     private Log() {
@@ -36,6 +37,7 @@ public class Log {
 
     public void input(RecordType recordType, String unitA, String unitB, int amount, String text) {
         Record record = new Record();
+        record.id = _id++;
         record.record_type = recordType;
         record.unit_A = unitA;
         record.unit_B = unitB;
@@ -45,11 +47,17 @@ public class Log {
     }
 
     public void showRecords() { // for test only
-        _messages.forEach((n) -> System.out.println("id:"+n.id +"|"+ n.record_type +"|"+ n.unit_A +"|"+ n.unit_B +"|"+ n.amount +"|"+ n.text ));
+        _messages.forEach((n) -> System.out.println("id:" + n.id + "|" + n.record_type + "|" + n.unit_A + "|" + n.unit_B + "|" + n.amount + "|" + n.text));
     }
 
 
     public ArrayList<Record> output() {
         return _messages;
+    }
+
+    public ArrayList<Record> output(int index) {
+        ArrayList<Record> result = new ArrayList<Record>();
+        result.addAll(_messages.subList(index, _messages.size()));
+        return result;
     }
 }
