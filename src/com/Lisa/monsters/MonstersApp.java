@@ -25,9 +25,15 @@ public class MonstersApp {
 
     public static void main(String[] args) {
 
+        Game core = new Game();
+        core.init("EN");
+
+        System.out.println(core.toJson());
+
+
         //Init locale
-        System.out.println("Choose language: EN or DE");
-        String inlang = sc.next();
+        //System.out.println("Choose language: EN or DE");
+        //String inlang = sc.next();
         /*if (inlang.equals("DE")) {
             Resources.setLanguageBundle(ResourceBundle.getBundle("i18n", Locale.GERMAN));
         } else {
@@ -57,6 +63,8 @@ public class MonstersApp {
         System.out.println(hero.getName() + " is ambushed by trolls");
 
         System.out.println(" Battle begins... ");*/
+
+        /*
         Boolean game_over = false;
         while (!game_over) {
             System.out.println("Hero's turn");
@@ -105,7 +113,7 @@ public class MonstersApp {
         System.out.println("End");
         Log.getInstance().showRecords();
 
-        System.out.println("End");
+        System.out.println("End"); */
     }
 
 }

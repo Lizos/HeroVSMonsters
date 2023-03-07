@@ -66,4 +66,8 @@ public class Hero extends GameCharacter {
         hp -= damage;
     }
 
+    @Override
+    public String toJson() {
+        return super.toJson();
+    }
 }

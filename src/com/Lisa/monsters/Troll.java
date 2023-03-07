@@ -55,6 +55,9 @@ public class Troll extends GameCharacter {
         block = false;
     }
 
-
+    @Override
+    public String toJson() {
+        return super.toJson();
+    }
 }
 

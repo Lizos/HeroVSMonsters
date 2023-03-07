@@ -1,6 +1,7 @@
 package com.Lisa.monsters;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -94,4 +95,38 @@ public class Game {
         return Log.getInstance().output(index);
     }
 
+
+    public String toJson() {
+        //JSON begin
+        String result = "{ ";
+
+        //Environment: begin
+        result += "\"IsNight\" : " + Environment.getInstance().getNight() + ", ";
+        //Environment: end
+
+        //Hero: begin
+        result += "\"Hero\" : " + _hero.toJson() + ", ";
+        //Hero: end
+
+        //Enemies: begin
+        result += "\"Enemies\" : [ ";
+
+        Iterator<GameCharacter> iter = _enemies.iterator();
+        while (iter.hasNext()) {
+            result += iter.next().toJson();
+
+            if (iter.hasNext()) {
+                result += ", ";
+            }
+        }
+
+        result += " ]";
+        //Enemies: end
+
+        result += " }";
+        //JSON end
+
+        return result;
+    }
 }
+

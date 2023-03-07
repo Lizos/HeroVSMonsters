@@ -61,6 +61,12 @@ abstract public class GameCharacter {
         return false;
     }
 
+    public String toJson() {
+        String _tJson;
+        _tJson = "{ \"name\" : \"" + this.name + "\", "  + "\"hp\" : " + this.hp + ", " + "\"attack\" : " + this.attackPower + " }";
+        return _tJson;
+    }
+
 
     protected void takeHit(int damage) {
 
