@@ -29,7 +29,7 @@ abstract public class GameCharacter {
     }
 
     public static GameCharacter createHero(String name) {
-        return new Hero(name, 5, 3);
+        return new Hero(name, 25, 3);
     }
 
     public static GameCharacter createWerewolf(String name) {

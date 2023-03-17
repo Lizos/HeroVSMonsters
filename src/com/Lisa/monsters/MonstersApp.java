@@ -24,39 +24,25 @@ public class MonstersApp {
     }
 
     public static void main(String[] args) {
+        String out = "";
 
         Game core = new Game();
-        core.init("EN");
 
-        System.out.println(core.toJson());
+        System.out.println("1 Input: " + "EN");
+        out = core.inOut("EN");
+        System.out.println("1 Output: " + out);
 
+        System.out.println("2 Input: " + "block");
+        out = core.inOut("block");
+        System.out.println("2 Output: " + out);
 
-        //Init locale
-        //System.out.println("Choose language: EN or DE");
-        //String inlang = sc.next();
-        /*if (inlang.equals("DE")) {
-            Resources.setLanguageBundle(ResourceBundle.getBundle("i18n", Locale.GERMAN));
-        } else {
-            Resources.setLanguageBundle(ResourceBundle.getBundle("i18n"));
-        }
+        System.out.println("3 Input: " + "attack1");
+        out = core.inOut("attack1");
+        System.out.println("3 Output: " + out);
 
-        //Init day/night
-        if (Math.random() < 0.6) {
-            Environment.getInstance().setNight(true);
-            System.out.println(ANSI_BLACK + " Night" + ANSI_RESET);
-        } else {
-            Environment.getInstance().setNight(false);
-            System.out.println(ANSI_YELLOW + " Day" + ANSI_RESET);
-
-        }*/
-
-        //init units
-        /*ArrayList<GameCharacter> enemies = new ArrayList<>();
-        enemies.add(GameCharacter.createBigTroll("Nifnif"));
-        enemies.add(GameCharacter.createRegularTroll("Nafnaf"));
-        enemies.add(GameCharacter.createSmallTroll("Nufnuf"));
-        enemies.add(GameCharacter.createWerewolf("Bobik"));
-        GameCharacter hero = GameCharacter.createHero("Bob");*/
+        System.out.println("4 Input: " + "attack1");
+        out = core.inOut("attack1");
+        System.out.println("4 Output: " + out);
 
         //start
         /*System.out.println(hero.getName() + " Journey is beginning");
@@ -65,55 +51,10 @@ public class MonstersApp {
         System.out.println(" Battle begins... ");*/
 
         /*
-        Boolean game_over = false;
-        while (!game_over) {
-            System.out.println("Hero's turn");
-            System.out.println(hero.name + ", what is your action?");
-            hero.resetBlock();
-            String input = sc.next();
-            if (input.equals("/hit")) {
-                System.out.println("Which one?");
-                showEnemies(enemies);
-                input = sc.next();
-                int index = Integer.parseInt(input);
-                GameCharacter monster = enemies.get(index);
-                hero.attack(monster);
-                if (monster.isDead()) {
-                    System.out.println(hero.getName() + " defeated a " + monster.getName());
-                    break;
-                }
-            }
 
-            if (input.equals("/block")) {
-                hero.blockAction();
-            }
-
-            System.out.println("Enemy's turn");
-            for (GameCharacter actual_monster : enemies) {
-                actual_monster.resetBlock();
-                if (Math.random() < 0.5) {
-                    actual_monster.attack(hero);
-                    if (hero.isDead()) {
-                        System.out.println(actual_monster.getName() + " defeated a " + hero.getName());
-                        game_over = true;
-                        break;
-                    }
-                } else {
-                    actual_monster.blockAction();
-                }
-            }
-            System.out.println("=========================");
-            System.out.println("Total");
-            System.out.println("Hero: " + hero.getHp());
-            System.out.println("Enemies: ");
-            showEnemies(enemies);
-            System.out.println("=========================");
-        }
-
-        System.out.println("End");
-        Log.getInstance().showRecords();
-
-        System.out.println("End"); */
+    }
+    }
+         */
     }
 
 }
