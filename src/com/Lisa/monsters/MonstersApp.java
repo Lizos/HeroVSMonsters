@@ -24,25 +24,25 @@ public class MonstersApp {
     }
 
     public static void main(String[] args) {
-        String out = "";
+        String _out = "";
 
         Game core = new Game();
 
         System.out.println("1 Input: " + "EN");
-        out = core.inOut("EN");
-        System.out.println("1 Output: " + out);
+        _out = core.inOut("EN");
+        System.out.println("1 Output: " + _out);
 
         System.out.println("2 Input: " + "block");
-        out = core.inOut("block");
-        System.out.println("2 Output: " + out);
+        _out = core.inOut("block");
+        System.out.println("2 Output: " + _out);
 
         System.out.println("3 Input: " + "attack1");
-        out = core.inOut("attack1");
-        System.out.println("3 Output: " + out);
+        _out = core.inOut("attack1");
+        System.out.println("3 Output: " + _out);
 
         System.out.println("4 Input: " + "attack1");
-        out = core.inOut("attack1");
-        System.out.println("4 Output: " + out);
+        _out = core.inOut("attack1");
+        System.out.println("4 Output: " + _out);
 
         //start
         /*System.out.println(hero.getName() + " Journey is beginning");
