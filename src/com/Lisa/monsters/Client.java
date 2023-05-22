@@ -12,10 +12,10 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args){
         final String[][] _out = {{""}};
-        final Socket clientSocket; // socket used by client to send and recieve data from server
+        final Socket clientSocket; // socket used by client to send and receive data from server
         final BufferedReader in;   // object to read data from socket
         final PrintWriter out;     // object to write data into socket
-        final Scanner sc = new Scanner(System.in); // object to read data from user's keybord
+        final Scanner sc = new Scanner(System.in); // object to read data from user's keyboard
         try {
             clientSocket = new Socket("127.0.0.1",5000);
             out = new PrintWriter(clientSocket.getOutputStream());
@@ -37,7 +37,7 @@ public class Client {
                 @Override
                 public void run() {
                     try {
-                        while(msg!=null){
+                        while(msg!="over"){
                             System.out.println("Server : "+ Arrays.toString(_out[0]));
                             _out[0] = new String[]{in.readLine()};
                         }

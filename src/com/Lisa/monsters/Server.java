@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class Server extends MonstersApp {
     public static void main(String[] args){
+        final String[] lastClientMessage = {""};
         final String[] _out = {""};
 
         Game core = new Game();
@@ -24,21 +25,27 @@ public class Server extends MonstersApp {
         final Scanner sc=new Scanner(System.in);
 
         try {
+            System.out.println("Starting server...");
             serverSocket = new ServerSocket(5000);
+            System.out.println("Waiting for client...");
             clientSocket = serverSocket.accept();
+            System.out.println("Client connected");
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader (new InputStreamReader(clientSocket.getInputStream()));
 
             Thread sender= new Thread(new Runnable() {
-                String msg; //variable that will contains the data writter by the user
-                @Override   // annotation to override the run method
+                String msg;
+                @Override
                 public void run() {
                     while(true){
-                        msg = sc.nextLine(); //reads data from user's keybord
-                        _out[0] = core.inOut(String.valueOf(msg));
-                        System.out.println("1 Output: " + _out[0]);
-                        out.println(Arrays.toString(_out));    // write data stored in msg in the clientSocket
-                        out.flush();   // forces the sending of the data
+                        if (lastClientMessage[0] != "") {
+                            _out[0] = core.inOut(String.valueOf(lastClientMessage[0]));
+                            System.out.println("1 Output: " + _out[0]);
+                            out.println(Arrays.toString(_out));    // write data stored in msg in the clientSocket
+                            out.flush();   // forces the sending of the data
+                            lastClientMessage[0] = "";
+                        }
+                        //msg = sc.nextLine();
                     }
                 }
             });
@@ -50,13 +57,13 @@ public class Server extends MonstersApp {
                 public void run() {
                     try {
                         msg = in.readLine();
-                        //tant que le client est connecté
+                        lastClientMessage[0] = msg;
                         while(msg!=null){
                             System.out.println("Client : "+msg);
                             msg = in.readLine();
                         }
 
-                        System.out.println("Client déconecté");
+                        System.out.println("Client disconnected");
 
                         out.close();
                         clientSocket.close();
